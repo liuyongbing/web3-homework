@@ -1,0 +1,23 @@
+
+server:
+  port: 8080
+  mode: debug
+
+jwt:
+  secret: change-me-in-production
+  expire: 24h
+
+log:
+  filename: logs/app.log
+  maxsize: 100
+  maxbackups: 5
+  maxage: 30
+  compress: true
+
+database:
+  driver: mysql
+  host: 127.0.0.1
+  port: 3306
+  dbname: web3_blog
+  username: root
+  password: root

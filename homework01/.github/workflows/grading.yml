@@ -1,0 +1,50 @@
+name: Homework Auto-Grading
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  test:
+    name: Run Go Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+
+      - name: Find and Run Tests
+        shell: bash
+        run: |
+          found=0
+          
+          echo "Scanning for Go modules (excluding templates)..."
+          
+          # Use process substitution to avoid subshell issues with variables
+          while IFS= read -r -d '' file; do
+            dir=$(dirname "$file")
+            echo "---------------------------------------------------"
+            echo "Found submission: $dir"
+            echo "Running tests..."
+            
+            # Run tests and capture exit code
+            if (cd "$dir" && go test -v ./...); then
+              echo "✅ Tests passed for $dir"
+            else
+              echo "❌ Tests failed for $dir"
+            fi
+            found=1
+          done < <(find . -name "go.mod" -not -path "*/templates/*" -print0)
+          
+          if [ $found -eq 0 ]; then
+             echo "No homework submissions detected outside of templates."
+          fi
+          
+          echo "Grading completed."
+
