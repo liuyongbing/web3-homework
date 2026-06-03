@@ -16,22 +16,31 @@ go mod tidy
 
 ## 配置说明
 
-编辑 `config/config.yaml`，修改数据库连接和服务端口：
+编辑 `config/config.yaml`，修改数据库连接、服务端口等：
 
 ```yaml
 server:
-  Port: 8080
+  port: 8080
+  mode: debug    # debug / release / test
 
 jwt:
   secret: change-me-in-production
-  expire: "24h"
+  expire: 24h
 
-mysql:
-  Host: 127.0.0.1
-  Port: 3306
-  DBName: web3_blog
-  Username: root
-  Password: root
+log:
+  filename: logs/app.log
+  maxsize: 100
+  maxbackups: 5
+  maxage: 30
+  compress: true
+
+database:
+  driver: mysql
+  host: 127.0.0.1
+  port: 3306
+  dbname: web3_blog
+  username: root
+  password: root
 ```
 
 > 启动前请先创建 MySQL 数据库：`CREATE DATABASE web3_blog CHARACTER SET utf8mb4;`
@@ -46,7 +55,7 @@ go run cmd/migration/main.go
 go run cmd/backend/main.go
 ```
 
-服务默认监听 `http://localhost:8080`。
+服务默认监听 `http://localhost:8080`，支持优雅关闭（SIGINT/SIGTERM）。
 
 ## API 接口
 
@@ -156,16 +165,20 @@ curl "http://localhost:8080/api/v1/comments/post/1?page=1&size=10"
 ```
 blog/
 ├── cmd/
-│   ├── backend/        # 服务入口
-│   └── migration/      # 数据库迁移
-├── config/             # 配置文件 (config.yaml)
-├── handlers/           # 请求处理器
-├── initialize/         # 初始化 (DB, JWT, Logger)
-├── middlewares/        # 中间件 (JWT 认证)
-├── models/             # GORM 模型
-├── requests/           # 请求结构体
-├── routes/             # 路由定义
-├── scripts/            # SQL 脚本
+│   ├── backend/          # 服务入口（支持优雅关闭）
+│   │   └── logs/         # 日志输出目录
+│   └── migration/        # 数据库迁移
+├── config/               # 配置加载（config.go + config.yaml）
+├── dao/                  # 数据访问层（Repository 模式，含单元测试）
+├── docs/db/mysql/        # MySQL DDL 脚本
+├── handlers/             # 请求处理器（含单元测试）
+├── initialize/           # 初始化（配置、DB、日志）
+├── middlewares/          # 中间件（JWT 认证，含单元测试）
+├── models/               # GORM 模型
+├── requests/             # 请求 DTO
+├── response/             # 统一响应格式 + 响应 DTO
+├── routes/               # 路由定义
+├── scripts/              # curl 测试脚本
 ├── go.mod
 └── go.sum
 ```
@@ -180,3 +193,5 @@ blog/
 | 认证 | JWT (golang-jwt/jwt/v5) |
 | 密码加密 | bcrypt (golang.org/x/crypto) |
 | 配置管理 | Viper |
+| 日志 | slog + Lumberjack（日志轮转） |
+| 测试 | testify + SQLite（内存数据库） |
