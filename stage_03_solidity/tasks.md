@@ -1,67 +1,53 @@
-基础一：DApp 后端基础(Golang的学习)
+基础二：Solidity智能合约基础
 
-学习课件：https://github.com/MetaNodeAcademy/golang-learning
+学习课件：https://github.com/MetaNodeAcademy/solidity_lesson；
 
-学习视频：https://appibxs98ig9955.h5.xet.citv.cn/p/course/ecourse/course_2xArq45EVWERVb4oHPYEmCLzHG5
+1）第一阶段：基础入门
+掌握Solidity核心语法和基础编程能力。包括智能合约概念、开发环境搭建、EVM存储机制、数据类型、数组、映射、结构体、函数、修饰符、控制流语句等基础知识，并完成简单代币合约项目。
+课件范围:  lesson1.1~lesson5.1
+使用在线的IDE: Remix
 
-总体学习时间：3周
+2）第二阶段：进阶编程
+深入学习合约高级特性和安全开发。包括合约继承、库合约、事件、错误处理、合约间调用、智能合约安全、Gas优化技巧、设计模式等进阶主题，并完成NFT市场实战项目。
+课件范围: lesson6.1~lesson10.1
+使用在线的IDE: Remix
 
-第一阶段：Go基础
+3）第三阶段：开发框架与实战
+掌握专业开发工具和实战项目开发。学习Hardhat和Foundry两大开发框架、单元测试、Ethers.js、MetaMask集成等开发技能，通过众筹平台、多签钱包、NFT盲盒等完整项目提升实战能力。
+这两年新出现的项目，大多优先选择 Foundry 作为开发与测试工具链。
 
-**内容概览**
-掌握Go基础语法，包括流程控制、函数、值与引用类型等核心概念
+课件范围: lesson11.1~lesson14.3
+使用的开发环境: VSCode编辑器 + Solidity插件 + Hardhat&Foundry工具
 
-**预期成果**
-能独立编写包含基础语法元素的Go程序
+4）第四阶段：完成简单作业
+https://github.com/MetaNodeAcademy/LearningRoadmap/blob/main/contract/homework01.md
+https://github.com/MetaNodeAcademy/LearningRoadmap/blob/main/contract/homework02.md
 
-课后作业
+5）掌握合约升级原理
 
-https://github.com/MetaNodeAcademy/LearningRoadmap/blob/main/backend/homework01.md
+https://github.com/MetaNodeAcademy/Base2-Solidity/tree/main/3-solidity-coding/3.2%E5%8F%AF%E5%8D%87%E7%BA%A7%E5%90%88%E7%BA%A6（文档）
 
-第二阶段：Go进阶
+https://meeting.tencent.com/wework/cloud-record/share?id=8acee3d0-2fc2-48f3-a702-b33e9906bd64&record_type=2&hide_more_btn=true&from=qywx（视频）
 
-**内容概览**
-掌握Go高阶功能，包括多态、并发、编译等。
+访问密码：0ZEX
 
-**预期成果**
-能完成面向对象编程、多任务处理以及同步机制
+6）完成任务3的作业，可以参考github资料中的课堂代码
 
-课后作业：
+https://github.com/MetaNodeAcademy/LearningRoadmap/blob/main/contract/homework03.md
 
-https://github.com/MetaNodeAcademy/LearningRoadmap/blob/main/backend/homework02.md
+使用hardhat V3开发
 
-第三阶段：GORM
+hardhat V3导读：https://learnblockchain.cn/article/21728
 
-**内容概览**
-从SQL基础到ORM框架实战
-预期成果
-能使用gorm进行数据库开发
+hardhat V3文档：https://hardhat.org/docs/getting-started
 
-课后作业：
+参考代码  ：https://github.com/lc3091/hardhatV3Nft.git
 
-https://github.com/MetaNodeAcademy/LearningRoadmap/blob/main/backend/homework03.md
+7）推荐阅读其他文档
+Foundry官方文档：https://getfoundry.sh/introduction/getting-started
+Hardhat官方文档：https://v2.hardhat.org/docs
+Solidity语言Cheatsheet：https://docs.soliditylang.org/en/v0.8.28/cheatsheet.html
+Remix使用方法：https://github.com/AmazingAng/WTF-Solidity/tree/main/Topics/Tools/TOOL01_Remix
+OpenZeppelin: https://docs.openzeppelin.com/    // 重点掌握
 
-第四阶段：Gin
-
-**内容概览**
-从原生HTTP到框架开发实战
-**预期成果**
-能构建RESTful API服务
-
-关于lesson-04的Go-Eth Client，本阶段不需要学习，等学完solidity之后再学！！！！！
-
-第五阶段：大作业- 个人博客系统后端
-
-https://github.com/MetaNodeAcademy/LearningRoadmap/blob/main/backend/homework04.md
-
-其他参考代码
-
-参考代码1：https://github.com/MetaNodeAcademy/golang_blog；
-参考代码2：https://github.com/MetaNodeAcademy/golang-learning/tree/main/lesson-03/examples/project
-
-（可选）Go语言生态除了课程里面学过的Gorm/Gin，还有其它一些后端常用的框架；
-Viper：https://github.com/spf13/viper；
-Corba：https://github.com/spf13/cobra；
-Redis：https://github.com/redis/go-redis；
-Kafka：https://github.com/confluentinc/confluent-kafka-go；
-gRPC：https://github.com/grpc/grpc-go；
+WTF-Solidity: https://github.com/WTFAcademy/WTF-Solidity
