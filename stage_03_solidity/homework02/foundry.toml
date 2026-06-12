@@ -1,0 +1,14 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+
+# Load environment variables from .env (auto-detected in project root)
+
+[rpc_endpoints]
+sepolia = "https://sepolia.drpc.org"
+
+[etherscan]
+sepolia = { key = "${ETHERSCAN_API_KEY}" }
