@@ -24,7 +24,7 @@ contract BeggingContractTest is Test {
         // 这样测试用户就有钱可以捐赠了
         deal(user1, 10 ether);
         deal(user2, 10 ether);
-        deal(user3, 10 ether); 
+        deal(user3, 10 ether);
         deal(user4, 10 ether);
     }
 
@@ -42,9 +42,9 @@ contract BeggingContractTest is Test {
         c.donate{value: 1 ether}(); // user1 捐赠 1 ETH
 
         // 验证三个状态都正确更新
-        assertEq(c.totalDonations(), 1 ether);   // 总捐赠额 = 1
-        assertEq(c.donations(user1), 1 ether);   // user1 的捐赠记录 = 1
-        assertEq(address(c).balance, 1 ether);   // 合约余额 = 1
+        assertEq(c.totalDonations(), 1 ether); // 总捐赠额 = 1
+        assertEq(c.donations(user1), 1 ether); // user1 的捐赠记录 = 1
+        assertEq(address(c).balance, 1 ether); // 合约余额 = 1
     }
 
     /// @notice 测试捐赠金额为 0 时应该 revert
@@ -180,8 +180,8 @@ contract BeggingContractTest is Test {
         c.donate{value: 1 ether}();
 
         (address[3] memory addrs, uint256[3] memory amounts) = c.getTopDonors();
-        assertEq(addrs[0], user1);      // 第 1 名是 user1
-        assertEq(amounts[0], 1 ether);  // 金额 1 ETH
+        assertEq(addrs[0], user1); // 第 1 名是 user1
+        assertEq(amounts[0], 1 ether); // 金额 1 ETH
         // addrs[1] 和 addrs[2] 是 address(0)，因为只有一个人捐过
     }
 

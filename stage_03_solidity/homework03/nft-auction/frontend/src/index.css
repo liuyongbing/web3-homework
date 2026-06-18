@@ -1,0 +1,290 @@
+/* ─── 全局 ─── */
+:root {
+  --bg: #0f1117;
+  --card: #1a1d27;
+  --card-hover: #22263a;
+  --border: #2a2e3d;
+  --text: #e4e4e7;
+  --text-dim: #8b8fa3;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --success: #22c55e;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --radius: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 16px 80px;
+}
+
+/* ─── 顶栏 ─── */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.header-right { display: flex; align-items: center; gap: 12px; }
+
+.badge {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+/* ─── 消息条 ─── */
+.msg {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+/* ─── 卡片 ─── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ─── 按钮 ─── */
+.btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 18px;
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn:hover:not(:disabled) { background: var(--card-hover); border-color: var(--accent); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+
+.btn-warn {
+  background: var(--warn);
+  border-color: var(--warn);
+  color: #000;
+}
+.btn-warn:hover:not(:disabled) { opacity: 0.85; }
+
+.btn-sm { padding: 5px 12px; font-size: 0.8rem; }
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ─── 工具栏 ─── */
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* ─── 拍卖列表 ─── */
+.auction-list { display: flex; flex-direction: column; gap: 12px; }
+
+.empty {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 40px 0;
+}
+
+.auction-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.auction-card:hover { border-color: var(--accent); }
+.auction-card.selected { border-color: var(--accent); background: var(--card-hover); }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.auction-id {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.status {
+  font-size: 0.85rem;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+.status.active  { background: rgba(34,197,94,0.15); color: var(--success); }
+.status.ended   { background: rgba(239,68,68,0.12); color: var(--danger); }
+.status.expired { background: rgba(245,158,11,0.12); color: var(--warn); }
+
+.card-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 20px;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+.card-body b { color: var(--text); }
+
+/* ─── 拍卖详情 ─── */
+.detail {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.detail h4 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 6px 12px;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+.detail-grid span:nth-child(odd) { color: var(--text-dim); }
+
+.action-group {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.action-group h5 {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.action-group input {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-size: 0.9rem;
+  width: 100%;
+  max-width: 280px;
+  margin-bottom: 8px;
+}
+.action-group input:focus { outline: none; border-color: var(--accent); }
+
+.hint {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ─── 弹窗 ─── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  width: 420px;
+  max-width: 95vw;
+}
+
+.modal h3 {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: var(--accent);
+}
+
+.modal label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+}
+
+.modal input,
+.modal select {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.modal input:focus,
+.modal select:focus { outline: none; border-color: var(--accent); }
+
+/* ─── 响应式 ─── */
+@media (max-width: 600px) {
+  .card-body { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 110px 1fr; }
+  header h1 { font-size: 1.2rem; }
+}

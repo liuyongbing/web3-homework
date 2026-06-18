@@ -1,0 +1,49 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-deb62db04bb8e3477896f015793d233d1ca12c82",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "compilerType": "solc",
+  "toolVersions": {
+    "hardhat": "3.9.0"
+  },
+  "userSourceNameMap": {
+    "contracts/mocks/ERC1967Proxy.sol": "project/contracts/mocks/ERC1967Proxy.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 1000
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.opcodes",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.immutableReferences",
+            "evm.deployedBytecode.linkReferences",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.opcodes",
+            "evm.deployedBytecode.sourceMap",
+            "evm.methodIdentifiers"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/mocks/ERC1967Proxy.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.28;\n\n/// @title ERC1967Proxy\n/// @dev 标准 EIP-1967 代理。implementation 地址存在固定 slot，所有调用通过 delegatecall 转发。\n///      UUPS 升级由实现合约的 upgradeToAndCall 通过 delegatecall 修改本 slot 完成。\n///      注：Hardhat V3 默认不为外部依赖（如 OZ）生成 artifact，所以把代理放在项目内，\n///      这样能生成 artifact，测试/部署才能用 deployContract(\"ERC1967Proxy\")。\ncontract ERC1967Proxy {\n    // bytes32(uint256(keccak256(\"eip1967.proxy.implementation\")) - 1)\n    bytes32 private constant _IMPLEMENTATION_SLOT = 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc;\n\n    constructor(address impl, bytes memory initData) {\n        require(impl != address(0) && impl.code.length > 0, \"ERC1967Proxy: invalid impl\");\n        assembly {\n            sstore(_IMPLEMENTATION_SLOT, impl)\n        }\n        if (initData.length > 0) {\n            (bool ok, bytes memory ret) = impl.delegatecall(initData);\n            if (!ok) {\n                // 冒泡 delegatecall 的 revert 数据，便于排查 init 失败原因\n                assembly {\n                    revert(add(ret, 0x20), mload(ret))\n                }\n            }\n        }\n    }\n\n    function implementation() external view returns (address impl) {\n        assembly {\n            impl := sload(_IMPLEMENTATION_SLOT)\n        }\n    }\n\n    fallback() external payable {\n        assembly {\n            let impl := sload(_IMPLEMENTATION_SLOT)\n            calldatacopy(0, 0, calldatasize())\n            let result := delegatecall(gas(), impl, 0, calldatasize(), 0, 0)\n            returndatacopy(0, 0, returndatasize())\n            switch result\n            case 0 { revert(0, returndatasize()) }\n            default { return(0, returndatasize()) }\n        }\n    }\n\n    receive() external payable {}\n}\n"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "nft-auction",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "fmt": "forge fmt ./contracts",
+    "compile": "hardhat compile --force",
+    "test": "hardhat test",
+    "test:coverage": "hardhat test --coverage"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ignition": "^3.1.7",
+    "@nomicfoundation/hardhat-toolbox-viem": "^5.0.7",
+    "@types/node": "^22.19.21",
+    "forge-std": "github:foundry-rs/forge-std#v1.9.4",
+    "hardhat": "^3.9.0",
+    "typescript": "~5.8.0",
+    "viem": "^2.52.2"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^1.5.0",
+    "@openzeppelin/contracts": "^5.6.1",
+    "@openzeppelin/contracts-upgradeable": "^5.6.1"
+  }
+}

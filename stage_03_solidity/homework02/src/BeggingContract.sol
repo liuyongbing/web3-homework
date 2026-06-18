@@ -31,7 +31,7 @@ contract BeggingContract is Ownable {
         uint256 amount = totalDonations;
         totalDonations = 0;
         closed = true;
-        (bool success, ) = payable(msg.sender).call{value: amount}("");
+        (bool success,) = payable(msg.sender).call{value: amount}("");
         require(success, "withdraw failed");
         emit Closed();
     }

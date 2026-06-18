@@ -1,0 +1,49 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-4afb9a9cd1d59549219ed6e5489a3a0f256bbfc4",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "compilerType": "solc",
+  "toolVersions": {
+    "hardhat": "3.9.0"
+  },
+  "userSourceNameMap": {
+    "contracts/mocks/MockPriceFeed.sol": "project/contracts/mocks/MockPriceFeed.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 1000
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.opcodes",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.immutableReferences",
+            "evm.deployedBytecode.linkReferences",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.opcodes",
+            "evm.deployedBytecode.sourceMap",
+            "evm.methodIdentifiers"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/mocks/MockPriceFeed.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.28;\n\n/// @dev 测试用：模拟 Chainlink Price Feed，返回固定/可控的价格与 round 元数据。\ncontract MockPriceFeed {\n    int256 public latestAnswer;\n    uint8 public decimalsVal;\n    uint80 public roundId;\n    uint80 public answeredInRound;\n    uint256 public updatedAt;\n    bool public useFixedTimestamp;\n\n    constructor(uint8 _decimals, int256 _initialAnswer) {\n        decimalsVal = _decimals;\n        latestAnswer = _initialAnswer;\n        roundId = 1;\n        answeredInRound = 1;\n    }\n\n    // 模拟 Chainlink 的 latestRoundData。\n    // 默认 updatedAt 用当前 block.timestamp（保证 PriceConverter 的\"陈旧检查\"不报错）。\n    function latestRoundData() external view returns (uint80, int256 answer, uint256, uint256, uint80) {\n        uint256 ts = useFixedTimestamp ? updatedAt : block.timestamp;\n        return (roundId, latestAnswer, ts, ts, answeredInRound);\n    }\n\n    // 测试时可改价格（模拟价格波动）—— 覆盖 setPrice 行\n    function setPrice(int256 _price) external {\n        latestAnswer = _price;\n    }\n\n    // 测试用：设置固定的 round 元数据（模拟陈旧 / 不完整 round）\n    function setRoundMeta(uint80 _roundId, uint80 _answeredInRound, uint256 _updatedAt) external {\n        roundId = _roundId;\n        answeredInRound = _answeredInRound;\n        updatedAt = _updatedAt;\n        useFixedTimestamp = true;\n    }\n\n    function decimals() external view returns (uint8) {\n        return decimalsVal;\n    }\n\n    function description() external pure returns (string memory) {\n        return \"Mock Price Feed\";\n    }\n\n    function version() external pure returns (uint256) {\n        return 1;\n    }\n}\n"
+      }
+    }
+  }
+}

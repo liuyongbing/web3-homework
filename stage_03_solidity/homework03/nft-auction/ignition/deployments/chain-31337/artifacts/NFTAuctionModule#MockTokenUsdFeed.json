@@ -1,0 +1,216 @@
+{
+  "_format": "hh3-artifact-1",
+  "contractName": "MockPriceFeed",
+  "sourceName": "contracts/mocks/MockPriceFeed.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "_decimals",
+          "type": "uint8"
+        },
+        {
+          "internalType": "int256",
+          "name": "_initialAnswer",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "answeredInRound",
+      "outputs": [
+        {
+          "internalType": "uint80",
+          "name": "",
+          "type": "uint80"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "decimalsVal",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "description",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "latestAnswer",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "latestRoundData",
+      "outputs": [
+        {
+          "internalType": "uint80",
+          "name": "",
+          "type": "uint80"
+        },
+        {
+          "internalType": "int256",
+          "name": "answer",
+          "type": "int256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint80",
+          "name": "",
+          "type": "uint80"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "roundId",
+      "outputs": [
+        {
+          "internalType": "uint80",
+          "name": "",
+          "type": "uint80"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "_price",
+          "type": "int256"
+        }
+      ],
+      "name": "setPrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint80",
+          "name": "_roundId",
+          "type": "uint80"
+        },
+        {
+          "internalType": "uint80",
+          "name": "_answeredInRound",
+          "type": "uint80"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_updatedAt",
+          "type": "uint256"
+        }
+      ],
+      "name": "setRoundMeta",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "updatedAt",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "useFixedTimestamp",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "version",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600e575f5ffd5b506040516104a63803806104a6833981016040819052602b91606e565b600180545f92909255600160581b600160a81b03196001600160581b031990921660ff9093169290921761010017166b010000000000000000000000179055609d565b5f5f60408385031215607e575f5ffd5b825160ff81168114608d575f5ffd5b6020939093015192949293505050565b6103fc806100aa5f395ff3fe608060405234801561000f575f5ffd5b50600436106100cf575f3560e01c80638cd221c91161007d578063f7a3080611610058578063f7a30806146101db578063fb67f97e146101ef578063feaf968c14610288575f5ffd5b80638cd221c914610173578063c22c2499146101a9578063d4141959146101ce575f5ffd5b806354fd4d50116100ad57806354fd4d50146101245780637284e4161461012b5780637519ab501461016a575f5ffd5b80631b9efc61146100d3578063313ce567146100f557806350d25bcd1461010e575b5f5ffd5b6003546100e09060ff1681565b60405190151581526020015b60405180910390f35b60015460ff165b60405160ff90911681526020016100ec565b6101165f5481565b6040519081526020016100ec565b6001610116565b604080518082018252600f81527f4d6f636b20507269636520466565640000000000000000000000000000000000602082015290516100ec9190610323565b61011660025481565b60015461018e90610100900469ffffffffffffffffffff1681565b60405169ffffffffffffffffffff90911681526020016100ec565b60015461018e906b010000000000000000000000900469ffffffffffffffffffff1681565b6001546100fc9060ff1681565b6101ed6101e9366004610358565b5f55565b005b6101ed6101fd36600461038d565b600180547fffffffffffffffffffffff0000000000000000000000000000000000000000ff1661010069ffffffffffffffffffff958616027fffffffffffffffffffffff00000000000000000000ffffffffffffffffffffff16176b01000000000000000000000093909416929092029290921781556002919091556003805460ff19169091179055565b6102906102c7565b6040805169ffffffffffffffffffff968716815260208101959095528401929092526060830152909116608082015260a0016100ec565b6003545f908190819081908190819060ff166102e357426102e7565b6002545b6001545f5469ffffffffffffffffffff6101008304811699509097509195508594506b0100000000000000000000009004169150509091929394565b602081525f82518060208401528060208501604085015e5f604082850101526040601f19601f83011684010191505092915050565b5f60208284031215610368575f5ffd5b5035919050565b803569ffffffffffffffffffff81168114610388575f5ffd5b919050565b5f5f5f6060848603121561039f575f5ffd5b6103a88461036f565b92506103b66020850161036f565b915060408401359050925092509256fea2646970667358221220198496be0545d2164f349dadd3a68ebf709cf50e5b43be288d881555998d5f7064736f6c634300081c0033",
+  "deployedBytecode": "0x608060405234801561000f575f5ffd5b50600436106100cf575f3560e01c80638cd221c91161007d578063f7a3080611610058578063f7a30806146101db578063fb67f97e146101ef578063feaf968c14610288575f5ffd5b80638cd221c914610173578063c22c2499146101a9578063d4141959146101ce575f5ffd5b806354fd4d50116100ad57806354fd4d50146101245780637284e4161461012b5780637519ab501461016a575f5ffd5b80631b9efc61146100d3578063313ce567146100f557806350d25bcd1461010e575b5f5ffd5b6003546100e09060ff1681565b60405190151581526020015b60405180910390f35b60015460ff165b60405160ff90911681526020016100ec565b6101165f5481565b6040519081526020016100ec565b6001610116565b604080518082018252600f81527f4d6f636b20507269636520466565640000000000000000000000000000000000602082015290516100ec9190610323565b61011660025481565b60015461018e90610100900469ffffffffffffffffffff1681565b60405169ffffffffffffffffffff90911681526020016100ec565b60015461018e906b010000000000000000000000900469ffffffffffffffffffff1681565b6001546100fc9060ff1681565b6101ed6101e9366004610358565b5f55565b005b6101ed6101fd36600461038d565b600180547fffffffffffffffffffffff0000000000000000000000000000000000000000ff1661010069ffffffffffffffffffff958616027fffffffffffffffffffffff00000000000000000000ffffffffffffffffffffff16176b01000000000000000000000093909416929092029290921781556002919091556003805460ff19169091179055565b6102906102c7565b6040805169ffffffffffffffffffff968716815260208101959095528401929092526060830152909116608082015260a0016100ec565b6003545f908190819081908190819060ff166102e357426102e7565b6002545b6001545f5469ffffffffffffffffffff6101008304811699509097509195508594506b0100000000000000000000009004169150509091929394565b602081525f82518060208401528060208501604085015e5f604082850101526040601f19601f83011684010191505092915050565b5f60208284031215610368575f5ffd5b5035919050565b803569ffffffffffffffffffff81168114610388575f5ffd5b919050565b5f5f5f6060848603121561039f575f5ffd5b6103a88461036f565b92506103b66020850161036f565b915060408401359050925092509256fea2646970667358221220198496be0545d2164f349dadd3a68ebf709cf50e5b43be288d881555998d5f7064736f6c634300081c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "immutableReferences": {},
+  "inputSourceName": "project/contracts/mocks/MockPriceFeed.sol",
+  "buildInfoId": "solc-0_8_28-4afb9a9cd1d59549219ed6e5489a3a0f256bbfc4"
+}

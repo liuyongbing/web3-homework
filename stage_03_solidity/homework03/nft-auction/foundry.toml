@@ -1,0 +1,11 @@
+[profile.default]
+src = "contracts"
+out = "out"
+libs = ["node_modules"]
+remappings = ["forge-std/=node_modules/forge-std/src/"]
+solc_version = "0.8.28"
+optimizer = true
+optimizer_runs = 1000
+
+[fmt]
+sort_imports = true

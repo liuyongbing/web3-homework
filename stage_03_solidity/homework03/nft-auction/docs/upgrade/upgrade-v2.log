@@ -1,0 +1,601 @@
+flow@LAPTOP-H92IKVHN:/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction$ sh upgrade-v2.sh 
+════════════════════════════════════════
+ V1 → V2 升级（平台手续费 300bp）
+════════════════════════════════════════
+ 代理地址: 0x290e776aDe5E53DF5fC7130de4392311043dEA8b
+
+
+[hardhat-keystore
+] Enter the password: **************
+当前版本: v1，目标版本: V2
+V2 实现已部署: 0x03a5ced7e7f7fda6d82e7c0419982d17886bf01e
+✅ upgradeToAndCall 完成（实现 → V2，platformFeeBp=300）
+version(): v1
+ContractFunctionExecutionError: The contract function "platformFeeBp" reverted.
+
+Contract Call:
+  address: 0x290e776aDe5E53DF5fC7130de4392311043dEA8b
+  function:  platformFeeBp()
+
+Docs: https: //viem.sh/docs/contract/readContract
+Details: execution reverted
+Version: viem@2.52.2
+    at getContractError (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/node_modules/viem/utils/errors/getContractError.ts: 82: 10)
+    at readContract (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/node_modules/viem/actions/public/readContract.ts: 140: 11)
+    at async main (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/scripts/upgrade.ts: 80: 36) {
+  cause: ContractFunctionRevertedError: The contract function "platformFeeBp" reverted.
+  
+  Details: execution reverted
+  Version: viem@2.52.2
+      at <anonymous> (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/node_modules/viem/utils/errors/getContractError.ts: 68: 14)
+      at getContractError (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/node_modules/viem/utils/errors/getContractError.ts: 80: 5)
+      at readContract (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/node_modules/viem/actions/public/readContract.ts: 140: 11)
+      at async main (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/scripts/upgrade.ts: 80: 36) {
+    details: 'execution reverted',
+    docsPath: undefined,
+    metaMessages: undefined,
+    shortMessage: 'The contract function "platformFeeBp" reverted.',
+    version: '2.52.2',
+    data: undefined,
+    raw: '0x',
+    reason: 'execution reverted',
+    signature: undefined,
+        [cause
+        ]: CallExecutionError: Execution reverted for an unknown reason.
+    
+    Raw Call Arguments:
+      to: 0x290e776aDe5E53DF5fC7130de4392311043dEA8b
+      data: 0xc98d74d8
+    
+    Details: execution reverted
+    Version: viem@2.52.2
+        at getCallError (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/node_modules/viem/utils/errors/getCallError.ts: 42: 10)
+        at call (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/node_modules/viem/_esm/actions/public/call.js: 175: 15)
+        at async readContract (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/node_modules/viem/actions/public/readContract.ts: 124: 22)
+        at async main (/code/web3.com/web3-homework/stage_03_solidity/homework03/nft-auction/scripts/upgrade.ts: 80: 36) {
+      cause: [ExecutionRevertedError
+            ],
+      details: 'execution reverted',
+      docsPath: undefined,
+      metaMessages: [Array
+            ],
+      shortMessage: 'Execution reverted for an unknown reason.',
+      version: '2.52.2'
+        }
+    },
+  details: 'execution reverted',
+  docsPath: '/docs/contract/readContract',
+  metaMessages: [
+    'Contract Call:',
+    '  address: 0x290e776aDe5E53DF5fC7130de4392311043dEA8b\n' +
+      '  function:  platformFeeBp()'
+    ],
+  shortMessage: 'The contract function "platformFeeBp" reverted.',
+  version: '2.52.2',
+  abi: [
+        { inputs: [Array
+            ], name: 'AddressEmptyCode', type: 'error'
+        },
+        { inputs: [Array
+            ], name: 'AuctionAlreadyEnded', type: 'error'
+        },
+        { inputs: [], name: 'AuctionNotEnded', type: 'error'
+        },
+        { inputs: [Array
+            ], name: 'AuctionNotFound', type: 'error'
+        },
+        { inputs: [], name: 'AuctionNotOver', type: 'error'
+        },
+        { inputs: [Array
+            ], name: 'BidTooLow', type: 'error'
+        },
+        { inputs: [Array
+            ], name: 'BidTypeNotAllowed', type: 'error'
+        },
+        { inputs: [], name: 'DurationInvalid', type: 'error'
+        },
+        { inputs: [Array
+            ], name: 'DurationTooLong', type: 'error'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'ERC1967InvalidImplementation',
+      type: 'error'
+        },
+        { inputs: [], name: 'ERC1967NonPayable', type: 'error'
+        },
+        { inputs: [], name: 'EnforcedPause', type: 'error'
+        },
+        { inputs: [], name: 'EthTransferFailed', type: 'error'
+        },
+        { inputs: [], name: 'ExpectedPause', type: 'error'
+        },
+        { inputs: [], name: 'FailedCall', type: 'error'
+        },
+        { inputs: [], name: 'FeeTooHigh', type: 'error'
+        },
+        { inputs: [], name: 'InvalidDecimals', type: 'error'
+        },
+        { inputs: [], name: 'InvalidInitialization', type: 'error'
+        },
+        { inputs: [], name: 'NegativePrice', type: 'error'
+        },
+        { inputs: [], name: 'NftAlreadyClaimed', type: 'error'
+        },
+        { inputs: [], name: 'NotInitializing', type: 'error'
+        },
+        { inputs: [], name: 'NotSeller', type: 'error'
+        },
+        { inputs: [], name: 'NotWinnerOrSeller', type: 'error'
+        },
+        { inputs: [], name: 'NothingToWithdraw', type: 'error'
+        },
+        { inputs: [Array
+            ], name: 'OwnableInvalidOwner', type: 'error'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'OwnableUnauthorizedAccount',
+      type: 'error'
+        },
+        { inputs: [Array
+            ], name: 'ReclaimTooEarly', type: 'error'
+        },
+        { inputs: [], name: 'ReentrancyGuardReentrantCall', type: 'error'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'SafeERC20FailedOperation',
+      type: 'error'
+        },
+        { inputs: [], name: 'StalePrice', type: 'error'
+        },
+        { inputs: [], name: 'UUPSUnauthorizedCallContext', type: 'error'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'UUPSUnsupportedProxiableUUID',
+      type: 'error'
+        },
+        { inputs: [], name: 'ZeroAddress', type: 'error'
+        },
+        { inputs: [], name: 'ZeroBid', type: 'error'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'AuctionCreated',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'AuctionEnded',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'BidPlaced',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'Initialized',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'NftClaimed',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'NftReclaimed',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'NftRefunded',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'OwnershipTransferred',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'Paused',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'PlatformFeeUpdated',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'Unpaused',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'Upgraded',
+      type: 'event'
+        },
+        {
+      anonymous: false,
+      inputs: [Array
+            ],
+      name: 'Withdrawn',
+      type: 'event'
+        },
+        {
+      inputs: [],
+      name: 'MAX_DURATION_HOURS',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'MAX_FEE_BP',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'MAX_PLATFORM_FEE_BP',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'NFT_RECLAIM_DELAY',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'UPGRADE_INTERFACE_VERSION',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'auctions',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'bidWithErc20',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'bidWithEth',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'claimNft',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'createAuction',
+      outputs: [Array
+            ],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'createAuction',
+      outputs: [Array
+            ],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'endAuction',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'endedAt',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'ethUsdFeed',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'ethUsdFeedDecimals',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'initialize',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'initializeV2',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'nextAuctionId',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'nftClaimed',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'owner',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'pause',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'paused',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'paymentToken',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'paymentTokenDecimals',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'paymentTokenUsdFeed',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'paymentTokenUsdFeedDecimals',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'pendingErc20',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'pendingEth',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'platformFeeBp',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'proxiableUUID',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'reclaimNft',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'renounceOwnership',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'setPlatformFee',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'settledFee',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'settledRoyalty',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'settledRoyaltyReceiver',
+      outputs: [Array
+            ],
+      stateMutability: 'view',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'transferOwnership',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'unpause',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        {
+      inputs: [Array
+            ],
+      name: 'upgradeToAndCall',
+      outputs: [],
+      stateMutability: 'payable',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'version',
+      outputs: [Array
+            ],
+      stateMutability: 'pure',
+      type: 'function'
+        },
+        {
+      inputs: [],
+      name: 'withdraw',
+      outputs: [],
+      stateMutability: 'nonpayable',
+      type: 'function'
+        },
+        { stateMutability: 'payable', type: 'receive'
+        }
+    ],
+  args: [],
+  contractAddress: '0x290e776aDe5E53DF5fC7130de4392311043dEA8b',
+  formattedArgs: undefined,
+  functionName: 'platformFeeBp',
+  sender: undefined
+}
