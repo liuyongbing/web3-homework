@@ -1,0 +1,33 @@
+[
+  {
+    "type": "function",
+    "name": "increment",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "number",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "setNumber",
+    "inputs": [{ "name": "newNumber", "type": "uint256", "internalType": "uint256" }],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "NumberUpdated",
+    "inputs": [
+      { "name": "caller", "type": "address", "indexed": true, "internalType": "address" },
+      { "name": "oldValue", "type": "uint256", "indexed": false, "internalType": "uint256" },
+      { "name": "newValue", "type": "uint256", "indexed": false, "internalType": "uint256" }
+    ],
+    "anonymous": false
+  }
+]
